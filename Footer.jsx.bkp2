@@ -1,0 +1,38 @@
+import React from 'react';
+import { addArticle } from "./actions/index.js";
+import { connect } from "react-redux";
+import store from "./store/index.js";
+
+
+
+class Footer extends React.Component {
+	
+
+	constructor(){
+		super();
+		this.state = {};
+	}
+	componentDidMount(){
+
+		this.setState({"date": new Date().toString()});
+
+		store.subscribe(() => {
+			console.log('Look ma, Redux!!', store.getState().articles);
+			this.setState({"date": new Date().toString()});
+			this.render();
+	})
+
+	}
+	render() {
+		console.log("rendering footer")
+
+		return (
+			<footer>
+				&copy; DevOps Dashboard. Time: {this.state.date}
+			</footer>
+		);
+	}
+}
+
+
+export default Footer;
