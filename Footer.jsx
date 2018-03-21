@@ -20,7 +20,7 @@ class Footer extends React.Component {
 						{el.name}
 					</li>
 					))}
-					<li> updated on {this.props.time}</li>
+					<li> Updated on {this.props.time}</li>
 				</ul>
 	 </footer>
 );
